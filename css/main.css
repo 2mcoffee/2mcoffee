@@ -1,0 +1,65 @@
+body {
+    margin:0;
+    overflow-x: hidden;
+}
+.title {
+	width:100%; 
+	text-align:center;
+	font-family:'Press Start 2P';
+}
+.title h1 {
+    margin: 0;
+    font-size:46px;
+}
+.title span {
+	font-size:10px;
+	color:#1BA1E2;
+}
+.license {
+    width:100%; 
+	text-align:center;
+	font-size:13px;
+	font-family: 'Manjari', sans-serif;
+}
+.license a {
+	text-decoration:none;
+	color:#A200FF;
+}
+.networks {
+    width:100%; 
+	text-align:center;
+	font-family:'Press Start 2P';
+	font-size:9px;
+}
+.networks img {
+	border:0;
+	vertical-align:middle;
+}
+.networks a {
+	text-decoration: none;
+	color:#F8C113;
+}
+.networks a:hover {
+	color: #00ABA9;
+}
+.apu {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    text-align:left;
+}
+.apu img{
+    border:0;
+}
+.post {
+    width:90%;
+    margin:auto;
+    text-align: center;
+}
+.post p {
+        margin: 0;
+        padding: 0;
+}
+.post img {
+    vertical-align: middle;
+}
