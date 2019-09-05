@@ -9,7 +9,7 @@ body {
 }
 .title h1 {
     margin: 0;
-    font-size:46px;
+    font-size:40px;
 }
 .title span {
 	font-size:10px;
@@ -52,7 +52,7 @@ body {
     border:0;
 }
 .post {
-    width:90%;
+    width:100%;
     margin:auto;
     text-align: center;
 }
@@ -62,4 +62,11 @@ body {
 }
 .post img {
     vertical-align: middle;
+}
+.content {
+	width:100%;
+	border-collapse: collapse;
+}
+.content td {
+ vertical-align: top;
 }
