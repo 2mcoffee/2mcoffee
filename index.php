@@ -133,10 +133,12 @@ label a {
 <br>
 <table class="content">
     <tr>
-        <td style="width:35%;">
-        Info personal
+        <td style="width:20%;">
+            Info personal
+            <br>
+            app version: 0.01a-0509191735
         </td>
-        <td style="width:65%;">
+        <td style="width:80%;">
             <?php
             $servername = "localhost";
             $username = "elbaulde_short";
@@ -169,13 +171,13 @@ label a {
             if ($result->num_rows > 0) {
                 // output data of each row
                 while($row = $result->fetch_assoc()) {
-                    echo '<div class="post">';
-                    echo '  Link recomendado: <a href="'.$row["URL"].'" target="_blank">'.$row["URL"].'</a>';
-                    echo '  <p>';
-                    echo '    Publicado por '.$row["Usuario"].' en <img src="./img/'.$row["Icono"].'" alt="Categoria"> el '.$row["Fecha"];
-                    echo '  </p>';
-                    echo '</div>';
-                    echo '<br>';
+                    echo '      <div class="post">'."\n";
+                    echo '          Link recomendado: <a href="'.$row["URL"].'" target="_blank">'.$row["URL"].'</a>'."\n";
+                    echo '          <p>'."\n";
+                    echo '              Publicado por '.$row["Usuario"].' en <img src="./img/'.$row["Icono"].'" alt="Categoria"> el '.$row["Fecha"]."\n";
+                    echo '          </p>'."\n";
+                    echo '      </div>'."\n";
+                    echo '      <br>'."\n";
                 }
             } else {
                 echo "0 resultados";
