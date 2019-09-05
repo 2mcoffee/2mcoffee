@@ -134,7 +134,10 @@ label a {
 <table class="content">
     <tr>
         <td style="width:20%;">
-            Info personal
+            <div class="user">
+                <img src="https://instagram.faep22-1.fna.fbcdn.net/vp/f49a0b02ccaa25805eed9b55c6726c0c/5E0F7068/t51.2885-19/s320x320/67209714_2518320551561243_1747631753339600896_n.jpg?_nc_ht=instagram.faep22-1.fna.fbcdn.net" alt="Profile">
+                <br>
+            </div>
             <br>
             app version: 0.01a-0509191735
         </td>
