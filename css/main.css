@@ -70,3 +70,17 @@ body {
 .content td {
  vertical-align: top;
 }
+.user {
+	text-align: center;
+}
+.user img{
+	border-radius: 50%;
+	width: 45%;
+	transition-duration: 0.8s;
+	transition-property: transform;
+	filter: grayscale(0%);
+}
+.user img:hover {
+	transform: rotate(360deg);
+	filter: grayscale(100%);
+}
