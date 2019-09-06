@@ -15,12 +15,12 @@
 </script>
 
 <!--Titulo-->
-<title>@2mcoffee - Otro experimento utilizando IA</title>
+<title>@2mcoffee - Otro inutil experimento</title>
 
 <!--Metadata-->
 <meta name="author" content="Luciano Alfonsin">
-<meta name="description" content="Otro experimento utilizando IA">
-<meta name="keywords" content="IA, AI, 2mcoffee">
+<meta name="description" content="Otro inutil experimento sobre redes sociales">
+<meta name="keywords" content="IA, AI, 2mcoffee,social,redes,instagram,twitter,facebook,youtube">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!--Hoja de estilos-->
@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap">
 
 <!--Estilo Menu embebido-->
-<style type="text/css">
+<style>
 *, *:before, *:after { 
     box-sizing: border-box; 
 }
@@ -146,7 +146,7 @@ label a:hover{
             <br>
             <div class="title">
                 <h1>@2mcoffee</h1>
-                <span>Otro experimento usando IA</span>
+                <span>Otro inútil experimento</span>
             </div>
             <br>
             <br>
@@ -176,7 +176,7 @@ label a:hover{
              </div>
             <br>
             <div class="release">
-                release: 0.03a-0609191801
+                release: 0.03a-0609191908
                 <br>
                 <br>
                 <a href="http://github.com/2mcoffee/2mcoffee" class="button bouncy" target="_blank">Source Code</a>
@@ -237,6 +237,6 @@ label a:hover{
         </td>
     </tr>
 </table>
-<div class="apu"><img  src="./img/apu.gif"></div>
+<div class="apu"><img  src="./img/apu.gif" alt="Apu limpiando"></div>
 </body>
 </html>
