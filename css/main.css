@@ -1,6 +1,7 @@
 body {
     margin:0;
-    overflow-x: hidden;
+	overflow-x: hidden;
+	font-family: 'Roboto', sans-serif;
 }
 .title {
 	width:100%; 
@@ -57,8 +58,9 @@ body {
     text-align: center;
 }
 .post p {
-        margin: 0;
-        padding: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 10px;
 }
 .post img {
     vertical-align: middle;
@@ -68,7 +70,7 @@ body {
 	border-collapse: collapse;
 }
 .content td {
- vertical-align: top;
+	vertical-align: top;
 }
 .user {
 	text-align: center;
