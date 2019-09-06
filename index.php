@@ -176,7 +176,7 @@ label a:hover{
              </div>
             <br>
             <div class="release">
-                release: 0.03a-0609191746
+                release: 0.03a-0609191801
                 <br>
                 <br>
                 <a href="http://github.com/2mcoffee/2mcoffee" class="button bouncy" target="_blank">Source Code</a>
@@ -232,7 +232,7 @@ label a:hover{
             $conn->close();
             ?>
             <br>
-            <div class="license"><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">¡Hey, no te copies!</a></div>
+            <div class="license">&copy; <?php echo date("Y"); ?> | Diseño y desarrollo por <a href="http://2mcoffee.com" target="_self">Luciano Alfonsin</a></div>
             <br>
         </td>
     </tr>
