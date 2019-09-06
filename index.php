@@ -30,6 +30,7 @@
 <!--Google Fonts-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manjari&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap">
 
 <!--Estilo Menu embebido-->
 <style type="text/css">
@@ -149,7 +150,7 @@ label a {
                 <br>
             </div>
             <br>
-            app version: 0.01a-0509191735
+            app version: 0.01a-0509192327
         </td>
         <td style="width:80%;">
             <?php
