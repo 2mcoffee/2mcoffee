@@ -158,9 +158,9 @@ label a:hover{
                     $pic = $obj['data']['profile_picture'];
                     $bio = $obj['data']['bio'];
                     echo '<img src="'.$pic.'" alt="Profile">'."\n";
-                    echo '          <br>'."\n";
-                    echo '          <br>'."\n";
-                    echo '          '.$bio."\n";
+                    echo '                <br>'."\n";
+                    echo '                <br>'."\n";
+                    echo '                '.$bio."\n";
                 ?>
             </div>
             <br>
@@ -175,7 +175,12 @@ label a:hover{
                 <img src="./icons/github.png" alt="github"> <a href="http://github.com/2mcoffee" target="_blank">@2mcoffee</a>
              </div>
             <br>
-            <div class="release">release: 0.03a-0609191718</div>
+            <div class="release">
+                release: 0.03a-0609191746
+                <br>
+                <br>
+                <a href="http://github.com/2mcoffee/2mcoffee" class="button bouncy" target="_blank">Source Code</a>
+            </div>
         </td>
         <td style="width:80%;">
             <br>
