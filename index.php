@@ -158,9 +158,9 @@ label a:hover{
                     $pic = $obj['data']['profile_picture'];
                     $bio = $obj['data']['bio'];
                     echo '<img src="'.$pic.'" alt="Profile">'."\n";
-                    echo '<br>'."\n";
-                    echo '<br>'."\n";
-                    echo $bio."\n";
+                    echo '          <br>'."\n";
+                    echo '          <br>'."\n";
+                    echo '          '.$bio."\n";
                 ?>
             </div>
             <br>
@@ -175,7 +175,7 @@ label a:hover{
                 <img src="./icons/github.png" alt="github"> <a href="http://github.com/2mcoffee" target="_blank">@2mcoffee</a>
              </div>
             <br>
-            <div class="release">release: 0.03a-0609191628</div>
+            <div class="release">release: 0.03a-0609191718</div>
         </td>
         <td style="width:80%;">
             <br>
@@ -213,7 +213,7 @@ label a:hover{
                 // output data of each row
                 while($row = $result->fetch_assoc()) {
                     echo '      <div class="post">'."\n";
-                    echo '          Link recomendado: <a href="'.$row["URL"].'" target="_blank">'.$row["URL"].'</a>'."\n";
+                    echo '          Contenido compartido: <a href="'.$row["URL"].'" target="_blank">'.$row["URL"].'</a>'."\n";
                     echo '          <p>'."\n";
                     echo '              Publicado por '.$row["Usuario"].' en <img src="./img/'.$row["Icono"].'" alt="Categoria"> el '.$row["Fecha"]."\n";
                     echo '          </p>'."\n";
