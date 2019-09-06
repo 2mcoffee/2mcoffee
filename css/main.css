@@ -10,11 +10,12 @@ body {
 }
 .title h1 {
     margin: 0;
-    font-size:40px;
+	font-size:25px;
+	color:#000000;
 }
 .title span {
-	font-size:10px;
-	color:#1BA1E2;
+	font-size:9px;
+	color:#FFFFFF;
 }
 .license {
     width:100%; 
@@ -24,7 +25,7 @@ body {
 }
 .license a {
 	text-decoration:none;
-	color:#A200FF;
+	color:#FDB90B;
 }
 .networks {
     width:100%; 
@@ -35,17 +36,18 @@ body {
 .networks img {
 	border:0;
 	vertical-align:middle;
+	padding-bottom: 5px;
 }
 .networks a {
 	text-decoration: none;
-	color:#F8C113;
+	color:#000000;
 }
 .networks a:hover {
-	color: #00ABA9;
+	color: #FFFFFF;
 }
 .apu {
     position:fixed;
-    left:0px;
+    left:30%;
     bottom:0px;
     text-align:left;
 }
@@ -65,6 +67,13 @@ body {
 .post img {
     vertical-align: middle;
 }
+.post a {
+	color:#FDB90B;
+	text-decoration:none;
+}
+.post a:hover {
+	color:#000000;
+}
 .content {
 	width:100%;
 	border-collapse: collapse;
@@ -74,15 +83,22 @@ body {
 }
 .user {
 	text-align: center;
+	font-size:14px;
+	font-weight: 300;
 }
 .user img{
 	border-radius: 50%;
-	width: 45%;
+	width: auto;
 	transition-duration: 0.8s;
 	transition-property: transform;
-	filter: grayscale(0%);
+	filter: grayscale(100%);
 }
 .user img:hover {
 	transform: rotate(360deg);
-	filter: grayscale(100%);
+	filter: grayscale(0%);
+}
+.release {
+	width: 100%;
+	text-align: center;
+	font-size:9px;
 }

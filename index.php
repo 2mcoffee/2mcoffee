@@ -30,7 +30,7 @@
 <!--Google Fonts-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manjari&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap">
 
 <!--Estilo Menu embebido-->
 <style type="text/css">
@@ -84,7 +84,7 @@ label input {
    display: none; 
 }
 label input:checked + .menu {
-    box-shadow: 0 0 0 100vw #FDB90B, 0 0 0 100vh #FFF;
+    box-shadow: 0 0 0 100vw #FDB90B, 0 0 0 100vh #FDB90B;
     border-radius: 0;
 }
 label input:checked + .menu .hamburger {
@@ -120,6 +120,11 @@ label a {
     display: block;
     color: #000;
     text-decoration: none;
+    font-family:'Press Start 2P';
+    font-size:16px;
+}
+label a:hover{
+    color:#FFFFFF;
 }
 </style>
 </head>
@@ -128,31 +133,53 @@ label a {
 <input type='checkbox'>
 <span class='menu'> <span class='hamburger'></span> </span>
   <ul>
-    <li> <a href='#'>Home</a> </li>
-    <li> <a href='#'>Trim URL</a> </li>
-    <li> <a href='#'>Tweet like me!</a> </li>
-    <li> <a href='#'>Public IG posts</a> </li>
+    <li> <a href='./'>Home</a> </li>
+    <li> <a href='./app'>Trim URL</a> </li>
+    <li> <a href='./tw'>Tweet like me!</a> </li>
+    <li> <a href='./ig'>Public IG posts</a> </li>
   </ul>
 </label>
-<br>
-<br>
-<div class="title">
-	<h1>@2mcoffee</h1>
-	<span>Otro experimento usando IA</span>
-</div>
-<br>
-<br>
 <table class="content">
     <tr>
-        <td style="width:20%;">
-            <div class="user">
-                <img src="https://instagram.faep22-1.fna.fbcdn.net/vp/f49a0b02ccaa25805eed9b55c6726c0c/5E0F7068/t51.2885-19/s320x320/67209714_2518320551561243_1747631753339600896_n.jpg?_nc_ht=instagram.faep22-1.fna.fbcdn.net" alt="Profile">
-                <br>
+        <td style="width:20%;background-color:#FDB90B;">
+            <br>
+            <br>
+            <div class="title">
+                <h1>@2mcoffee</h1>
+                <span>Otro experimento usando IA</span>
             </div>
             <br>
-            app version: 0.01a-0509192327
+            <br>
+            <div class="user">
+                <?php
+                    $json_string = 'https://api.instagram.com/v1/users/1996905208?access_token=1996905208.ed896b3.e11366fd165e4090882cbb85c75c564d';
+                    $jsondata = file_get_contents($json_string);
+                    $obj = json_decode($jsondata,true);
+                    $pic = $obj['data']['profile_picture'];
+                    $bio = $obj['data']['bio'];
+                    echo '<img src="'.$pic.'" alt="Profile">'."\n";
+                    echo '<br>'."\n";
+                    echo '<br>'."\n";
+                    echo $bio."\n";
+                ?>
+            </div>
+            <br>
+            <br>
+            <div class="networks">
+                <img src="./icons/facebook.png" alt="facebook"> <a href="http://fb.me/2mcoffee" target="_blank">@2mcoffee</a> 
+                <br>
+                <img src="./icons/instagram.png" alt="instagram"> <a href="http://instagr.am/2mcoffee" target="_blank">@2mcoffee</a> 
+                <br>
+                <img src="./icons/twitter.png" alt="twitter"> <a href="http://twitter.com/2mcoffee" target="_blank">@2mcoffee</a>
+                <br>
+                <img src="./icons/github.png" alt="github"> <a href="http://github.com/2mcoffee" target="_blank">@2mcoffee</a>
+             </div>
+            <br>
+            <div class="release">release: 0.03a-0609191628</div>
         </td>
         <td style="width:80%;">
+            <br>
+            <br>
             <?php
             $servername = "localhost";
             $username = "elbaulde_short";
@@ -199,15 +226,12 @@ label a {
 
             $conn->close();
             ?>
+            <br>
+            <div class="license"><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">¡Hey, no te copies!</a></div>
+            <br>
         </td>
     </tr>
 </table>
-<br>
-<br>
-<div class="networks"><img src="./icons/facebook.png" alt="facebook"> <a href="http://fb.me/2mcoffee" target="_blank">@2mcoffee</a> <img src="./icons/instagram.png" alt="instagram"> <a href="http://instagr.am/2mcoffee" target="_blank">@2mcoffee</a> <img src="./icons/twitter.png" alt="twitter"> <a href="http://twitter.com/2mcoffee" target="_blank">@2mcoffee</a> </div>
-<br>
-<br>
-<div class="license"><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Hey, no te copies!</a>.</div>
 <div class="apu"><img  src="./img/apu.gif"></div>
 </body>
 </html>
