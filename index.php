@@ -4,6 +4,16 @@
 <head>
 <meta charset="utf-8">
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5F3CP3SR48"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5F3CP3SR48');
+</script>
+
 <!--Titulo-->
 <title>@2mcoffee - Otro experimento utilizando IA</title>
 
