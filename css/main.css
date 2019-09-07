@@ -151,3 +151,7 @@ a.button:hover{
 	50%{top:0em}
 	100%{top:0em;}
 }
+.bar {
+	width:20%;
+	background-color:#FDB90B;
+}
