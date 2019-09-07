@@ -55,7 +55,7 @@ body {
 }
 .apu {
     position:fixed;
-    left:30%;
+    left:25%;
     bottom:0px;
     text-align:left;
 }
@@ -196,4 +196,16 @@ a.button:hover{
 	vertical-align: middle;
 	height: 100vh;
 	font-family:'Press Start 2P';
+}
+.instagram {
+	font-size:14px;
+	margin:0 auto;
+	width: 480px;
+}
+.instagram span {
+	font-size: 10px;
+}
+.instagram img {
+	max-width: 480px;
+	border:0px;
 }
