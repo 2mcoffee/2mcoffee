@@ -16,7 +16,7 @@ body {
 	text-align:center;
 	font-family:'Press Start 2P';
 }
-.title h1 {
+.title h1, .middle h1 {
     margin: 0;
 	font-size:25px;
 	color:#000000;
@@ -158,4 +158,42 @@ a.button:hover{
 .bar {
 	width:20%;
 	background-color:#FDB90B;
+}
+.inputBox
+{
+	width:300px;
+	padding:5px;
+	font-size:15px;
+	font-family:'Roboto', sans-serif;
+}
+.cut
+{
+	padding:10px;
+	color:#FFFFFF;
+	background-color:#FDB90B;
+	border:0;
+	font-size:12px;
+	font-family:'Press Start 2P';
+}
+.msg
+{
+	font-size:17px;
+	font-family:'Roboto', sans-serif;
+}
+.msg a {
+	text-decoration: none;
+	color:#FDB90B;
+}
+.outer {
+    display: table;
+    position: absolute;
+	text-align:center;
+	margin:auto;
+	width:100%;
+}
+.middle {
+    display: table-cell;
+	vertical-align: middle;
+	height: 100vh;
+	font-family:'Press Start 2P';
 }

@@ -1,3 +1,3 @@
-<div class="apu"><img  src="./img/apu.gif" alt="Apu limpiando"></div>
+<div class="apu"><img  src="../img/apu.gif" alt="Apu limpiando"></div>
 </body>
 </html>

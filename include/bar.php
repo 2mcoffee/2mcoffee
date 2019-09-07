@@ -22,17 +22,17 @@
             <br>
             <br>
             <div class="networks">
-                <img src="./icons/facebook.png" alt="facebook"> <a href="http://fb.me/2mcoffee" target="_blank">@2mcoffee</a> 
+                <img src="../icons/facebook.png" alt="facebook"> <a href="http://fb.me/2mcoffee" target="_blank">@2mcoffee</a> 
                 <br>
-                <img src="./icons/instagram.png" alt="instagram"> <a href="http://instagr.am/2mcoffee" target="_blank">@2mcoffee</a> 
+                <img src="../icons/instagram.png" alt="instagram"> <a href="http://instagr.am/2mcoffee" target="_blank">@2mcoffee</a> 
                 <br>
-                <img src="./icons/twitter.png" alt="twitter"> <a href="http://twitter.com/2mcoffee" target="_blank">@2mcoffee</a>
+                <img src="../icons/twitter.png" alt="twitter"> <a href="http://twitter.com/2mcoffee" target="_blank">@2mcoffee</a>
                 <br>
-                <img src="./icons/github.png" alt="github"> <a href="http://github.com/2mcoffee" target="_blank">@2mcoffee</a>
+                <img src="../icons/github.png" alt="github"> <a href="http://github.com/2mcoffee" target="_blank">@2mcoffee</a>
              </div>
             <br>
             <div class="release">
-            <?php include './include/release.php'; ?>
+            <?php include 'release.php'; ?>
                 <br>
                 <br>
                 <a href="http://github.com/2mcoffee/2mcoffee" class="button bouncy" target="_blank">Source Code</a>
