@@ -17,9 +17,10 @@
 <!--Titulo-->
 <?php 
 $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
-$size_link = strlen($actual_link);
+$real_link = str_replace('www.','',$actual_link);
+$size_link = strlen($real_link);
 
-if ($size_link == 20 || $size_link == 24) {
+if ($size_link == 20) {
     echo '<title>@2mcoffee - Otro inutil experimento | Luciano Alfonsin</title>'."\n";
 } else {
     $section_link = substr($actual_link,-4);
@@ -53,6 +54,7 @@ if ($size_link == 20 || $size_link == 24) {
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manjari&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap">
 
 <!--Estilo Menu embebido-->
 <style>

@@ -16,7 +16,7 @@ body {
 	text-align:center;
 	font-family:'Press Start 2P';
 }
-.title h1, .middle h1 {
+.title h1, .middle h1, .send h1 {
     margin: 0;
 	font-size:25px;
 	color:#000000;
@@ -68,7 +68,7 @@ body {
 	text-align: center;
 	font-size: 15px;
 }
-.post p {
+.post p, .read p {
 	margin: 0;
 	padding: 0;
 	font-size: 10px;
@@ -132,12 +132,12 @@ a.button {
 	text-align: center;
 	transition:all 0.2s;
 }
-a.button:hover{
+a.button:hover, .send input[type=button]:hover {
 	color:#000000;
 	background-color:#FFFFFF;
 }
 @media all and (max-width:30em){
-	a.button{
+	a.button, .send input[type=button] {
 		display:block;
 		margin:0.4em auto;
 	}
@@ -208,4 +208,40 @@ a.button:hover{
 .instagram img {
 	max-width: 480px;
 	border:0px;
+}
+.send {
+	text-align:center;
+}
+.send h1 {
+	font-family:'Press Start 2P';
+}
+.send form textarea {
+	resize: none;
+	overflow:hidden;
+	border: 1px solid #FDB90B;
+	border-radius: 10px;
+	height: 6em;
+    width: 40em;
+}
+.read {
+	width: 80%;
+	margin:0 auto;
+	border-radius: 15px;
+	background-color: #FDB90B;
+	padding-left: 10px;
+	font-size: 14px;
+}
+.read a {
+	text-decoration: none;
+	color:#FFFFFF;
+}
+.twitter {
+	font-family: 'Bree Serif', serif;
+	font-size: 24px;
+}
+.twitter span {
+	color:#FFFFFF;
+}
+.g-recaptcha {
+	display: inline-block;
 }
