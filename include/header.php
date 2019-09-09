@@ -19,7 +19,24 @@
 $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
 $size_link = strlen($actual_link);
 
-echo '<title>'.$size_link.'</title>';
+if ($size_link == 20 || $size_link == 24) {
+    echo '<title>@2mcoffee - Otro inutil experimento | Luciano Alfonsin</title>'."\n";
+} else {
+    $section_link = substr($actual_link,-4);
+
+    switch ($section_link) {
+        case '/tw/':
+            echo '<title>@2mcoffee - Twitter - Otro inutil experimento | Luciano Alfonsin</title>'."\n";
+            break;
+        case '/ig/':
+            echo '<title>@2mcoffee - Instagram - Otro inutil experimento | Luciano Alfonsin</title>'."\n";
+            break;
+        case 'app/':
+            echo '<title>@2mcoffee - Trim URL - Otro inutil experimento | Luciano Alfonsin</title>'."\n";
+            break;
+     };
+
+};
 ?>
 
 <!--Metadata-->

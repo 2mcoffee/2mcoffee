@@ -1,2 +1,2 @@
-release 0.06a-0909191038
+release 0.06a-0909191125
             <p>codename lucia</p>
