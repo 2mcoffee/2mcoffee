@@ -1,2 +1,2 @@
-release 0.07a-0909191605
-            <p>codename lucia</p>
+release 0.01beta-1109191125
+            <p>codename: "lucia"</p>

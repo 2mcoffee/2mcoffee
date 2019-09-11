@@ -67,6 +67,7 @@ body {
     margin:auto;
 	text-align: center;
 	font-size: 15px;
+	font-family: 'Roboto', sans-serif;
 }
 .post p, .read p {
 	margin: 0;
@@ -186,7 +187,6 @@ a.button:hover, .send input[type=button]:hover {
 }
 .outer {
     display: table;
-    position: absolute;
 	text-align:center;
 	margin:auto;
 	width:100%;
@@ -194,7 +194,6 @@ a.button:hover, .send input[type=button]:hover {
 .middle {
     display: table-cell;
 	vertical-align: middle;
-	height: 100vh;
 	font-family:'Press Start 2P';
 }
 .instagram {
@@ -244,4 +243,26 @@ a.button:hover, .send input[type=button]:hover {
 }
 .g-recaptcha {
 	display: inline-block;
+}
+.open, .photo {
+	width: 80%;
+	margin:0 auto;
+}
+.open span {
+	font-weight: bold;
+	color: #FDB90B;
+}
+.photo {
+	text-align:center;
+}
+.photo img {
+	border:0px;
+	filter: grayscale(100%);
+	transition: all .8s ease-in-out;
+	border-radius:5px;
+	max-width: 480px;
+}
+.photo img:hover {
+	filter: grayscale(0%);
+	transform: scale(1.01);
 }
