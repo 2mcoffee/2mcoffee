@@ -11,7 +11,7 @@
             <br>
             <div class="send">
                 <h1 style="font-family:'Press Start 2P';">Let's tweet!</h1>
-                <br>
+                <!--<br>
                 <form action="./publish.php" method="post" onsubmit="return submitUserForm();">
                     <textarea  minlength="5" maxlength="140" name="twpost" placeholder="Escribir tweet aqui..." required></textarea>
                     <br>
@@ -35,7 +35,7 @@
                     function verifyCaptcha() {
                         document.getElementById('g-recaptcha-error').innerHTML = '';
                     }
-                </script>
+                </script>-->
             </div>
             <br>
             <br>
@@ -55,10 +55,15 @@
                     $twitter = new Twitter($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
         
                     $statuses = $twitter->load(Twitter::ME);
+
+                    $media_url = $result->entities->media[0]->media_url;
                     
                     foreach ($statuses as $status) {
                         echo '                '.Twitter::clickable($status)."\n";
                         echo '                <p>Publicado el '.$status->created_at.' por '.$status->user->name.'</p>'."\n";
+                        if (strlen($status->entities->media[0]->media_url)>0) {
+                            echo '                <p><a href="'.$status->entities->media[0]->media_url.'" target="_blank"><img src="'.$status->entities->media[0]->media_url.'" alt="2mcoffee" style="max-width: 240px;border:0px;"></a></p>'."\n";
+                        }
                         echo '                <br>'."\n";
                     }
 

@@ -76,17 +76,17 @@ if(isset($_POST["submit"]))
             <br>
             <div class="outer">
                 <div class="middle">
-					<h1>Shared content!</h1>
+					<h1>Trim Url!</h1>
 					<br>
 					<br>
-                    <!--<form method="post" style="visibility:hidden;">
+                    <form method="post">
                         <input type="url" name="long_url" class="inputBox" required>
                         <input type="submit" name="submit" class="cut bouncy" value="Cut it off!" >
 					</form>
 					<br>
                     <h2 class="msg"><?php echo $msg;?></h2>
 					<br>
-					<br>-->
+					<!--<br>
 					<?php
 						$servername = "localhost";
 						$username = "elbaulde_short";
@@ -134,7 +134,7 @@ if(isset($_POST["submit"]))
 
 						$conn->close();
 					?>
-					<br>
+					<br>-->
 					<br>
                     <?php include '../include/license.php'; ?>
                     <br>

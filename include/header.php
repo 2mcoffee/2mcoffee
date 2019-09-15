@@ -33,8 +33,10 @@ if ($size_link == 20) {
             echo '<title>@2mcoffee - Instagram - Otro inutil experimento | Luciano Alfonsin</title>'."\n";
             break;
         case 'app/':
-            echo '<title>@2mcoffee - Trim URL - Otro inutil experimento | Luciano Alfonsin</title>'."\n";
+            echo '<title>@2mcoffee - Links - Otro inutil experimento | Luciano Alfonsin</title>'."\n";
             break;
+        default:
+            echo '<title>@2mcoffee - Otro inutil experimento | Luciano Alfonsin</title>'."\n";
      };
 
 };

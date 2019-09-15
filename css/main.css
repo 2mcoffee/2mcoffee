@@ -241,6 +241,10 @@ a.button:hover, .send input[type=button]:hover {
 .twitter span {
 	color:#FFFFFF;
 }
+.twitter img {
+	border:0px;
+	max-width: 240px;
+}
 .g-recaptcha {
 	display: inline-block;
 }
