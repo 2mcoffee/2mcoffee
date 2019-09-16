@@ -4,53 +4,17 @@
 <head>
 <meta charset="utf-8">
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5F3CP3SR48"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5F3CP3SR48');
-</script>
-
 <!--Titulo-->
-<?php 
-$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
-$real_link = str_replace('www.','',$actual_link);
-$size_link = strlen($real_link);
-
-if ($size_link == 20) {
-    echo '<title>@2mcoffee - Otro inutil experimento | Luciano Alfonsin</title>'."\n";
-} else {
-    $section_link = substr($actual_link,-4);
-
-    switch ($section_link) {
-        case '/tw/':
-            echo '<title>@2mcoffee - Twitter - Otro inutil experimento | Luciano Alfonsin</title>'."\n";
-            break;
-        case '/ig/':
-            echo '<title>@2mcoffee - Instagram - Otro inutil experimento | Luciano Alfonsin</title>'."\n";
-            break;
-        case 'app/':
-            echo '<title>@2mcoffee - Links - Otro inutil experimento | Luciano Alfonsin</title>'."\n";
-            break;
-        default:
-            echo '<title>@2mcoffee - Otro inutil experimento | Luciano Alfonsin</title>'."\n";
-     };
-
-};
-?>
+<title>My site</title>
 
 <!--Metadata-->
-<meta name="author" content="Luciano Alfonsin">
-<meta name="description" content="Otro inutil experimento sobre redes sociales">
-<meta name="keywords" content="IA, AI, 2mcoffee,social,redes,instagram,twitter,facebook,youtube">
+<meta name="author" content="">
+<meta name="description" content="">
+<meta name="keywords" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!--Hoja de estilos-->
 <link rel="stylesheet" href="../css/main.css">
-<link rel="stylesheet" href="../css/glitch.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" type="text/css">
 
 <!--Google Fonts-->

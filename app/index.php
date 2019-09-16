@@ -79,19 +79,39 @@ if(isset($_POST["submit"]))
 					<h1>Shared content!</h1>
 					<br>
 					<br>
-                    <!--<form method="post" style="visibility:hidden;">
+                    <form method="post">
                         <input type="url" name="long_url" class="inputBox" required>
-                        <input type="submit" name="submit" class="cut bouncy" value="Cut it off!" >
+						<input type="submit" name="submit" class="cut bouncy" value="Cut it off!" >
+						<br>
+						<br>
+						<!--Complete with your own Google site key for recaptcha-->
+						<div class="g-recaptcha" data-sitekey="SITE_KEY" data-callback="verifyCaptcha"></div> 
+						<div id="g-recaptcha-error"></div>
 					</form>
+					<script src="https://www.google.com/recaptcha/api.js"></script>
+					<script>
+						function submitUserForm() {
+							var response = grecaptcha.getResponse();
+							if(response.length == 0) {
+								document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:#FE6E41;">Verificar que no eres un robot.</span>';
+								return false;
+							}
+							return true;
+						}
+						
+						function verifyCaptcha() {
+							document.getElementById('g-recaptcha-error').innerHTML = '';
+						}
+					</script>
 					<br>
                     <h2 class="msg"><?php echo $msg;?></h2>
 					<br>
-					<br>-->
+					<br>
 					<?php
-						$servername = "localhost";
-						$username = "elbaulde_short";
-						$password = "P@l!7o02";
-						$dbname = "elbaulde_estore";
+						$servername = "SERVER"; // Database server name
+						$username = "USER"; // Database username
+						$password = "PASSWORD"; // Database password for database user
+						$dbname = "DATABASE"; // Database name
 
 						// Create connection
 						$conn = new mysqli($servername, $username, $password, $dbname);
@@ -112,7 +132,7 @@ if(isset($_POST["submit"]))
 							WHEN long_url LIKE '%photos.app.goo.gl%' THEN 'photos.png'
 							ELSE 'chrome.png' 
 						END as Icono,
-						'2mcoffee' as Usuario
+						'username' as Usuario -- Insert your own username 
 						FROM url_shortner
 						ORDER BY date DESC";
 						$result = $conn->query($sql);

@@ -1,1 +1,2 @@
-<div class="license">&copy; <?php echo date("Y"); ?> | Diseño y desarrollo por <a href="http://2mcoffee.com" target="_self">Luciano Alfonsin</a></div>
+<div class="license">&copy; <?php echo date("Y"); ?> | Developed by <a href="http://2mcoffee.com" target="_self">Luciano Alfonsin</a></div>
+<!--Add here your own copyrigth message-->

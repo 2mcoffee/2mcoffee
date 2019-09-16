@@ -208,10 +208,10 @@ a.button:hover, .send input[type=button]:hover {
 	max-width: 480px;
 	border:0px;
 }
-.send {
+.send, .gallery {
 	text-align:center;
 }
-.send h1 {
+.send h1, .gallery h1 {
 	font-family:'Press Start 2P';
 }
 .send form textarea {

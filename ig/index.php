@@ -9,8 +9,13 @@
         <td style="width:80%;">
             <br>
             <br>
+            <div class="gallery">
+                <h1 style="font-family:'Press Start 2P';">IG posts!</h1>
+            </div>
+            <br>
+            <br>
             <?php
-            $access_token = "1996905208.ed896b3.e11366fd165e4090882cbb85c75c564d";
+            $access_token = "ACCESS_TOKEN"; //IG Access Token
             $photo_count = 20;
             $json_link = "https://api.instagram.com/v1/users/self/media/recent/?";
             $json_link .="access_token={$access_token}&count={$photo_count}";
