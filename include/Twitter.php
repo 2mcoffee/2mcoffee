@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Twitter for PHP - library for sending messages to Twitter and receiving status updates.
  *
@@ -13,10 +11,11 @@ declare(strict_types=1);
  * Version:     4.0
  */
 
+declare(strict_types=1);
+
 namespace DG\Twitter;
 
 use stdClass;
-
 
 /**
  * Twitter API.
