@@ -45,7 +45,7 @@
                 <br>
                 <?php
 
-                    include "./twitter.class.php";
+                    include "../include/twitter.class.php";
 
                     $consumerKey = "26hvjd5sd6J177YZLc537Q8xL";
                     $consumerSecret = "rwjRHrqGcU1gxClr9r6MJKoQ2HGc4HUD0gGfaU22krFZg01eOk";
