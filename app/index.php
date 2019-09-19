@@ -132,7 +132,11 @@ if(isset($_POST["submit"]))
 							WHEN long_url LIKE '%photos.app.goo.gl%' THEN 'photos.png'
 							ELSE 'chrome.png' 
 						END as Icono,
-						'username' as Usuario -- Insert your own username 
+						'username' as Usuario, -- Insert your own username 
+						CASE 
+							WHEN long_url LIKE '%youtube.com%' THEN REPLACE(long_url,'https://www.youtube.com/watch?v=','')
+							ELSE ''
+						END as thumb
 						FROM url_shortner
 						ORDER BY date DESC";
 						$result = $conn->query($sql);
@@ -145,6 +149,10 @@ if(isset($_POST["submit"]))
 								echo '          <p>'."\n";
 								echo '              Publicado por '.$row["Usuario"].' en <img src="../img/'.$row["Icono"].'" alt="Categoria"> el '.$row["Fecha"]."\n";
 								echo '          </p>'."\n";
+								if (strlen($row["thumb"])>0) {
+									echo '      <br>'."\n";;
+									echo '      <img src="https://img.youtube.com/vi/'.$row["thumb"].'/hqdefault.jpg" alt="youtube" width="250px">'."\n";
+								}
 								echo '      </div>'."\n";
 								echo '      <br>'."\n";
 							}
