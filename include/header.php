@@ -23,6 +23,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap">
 
+<!--Font Awesome-->
+<script src="https://kit.fontawesome.com/f8652d83cd.js" crossorigin="anonymous"></script>
+
 <!--Estilo Menu embebido-->
 <style>
 *, *:before, *:after { 
