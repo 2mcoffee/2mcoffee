@@ -1,174 +1,149 @@
-<?php
-	include '../include/config.php';
-	include '../include/function.php';
-	
-	$msg = "";
-	
-if(isset($_GET['r']) || !empty($_GET['r']))
-{
-	$url_id = $_GET['r'];
-	
-	$sql = "SELECT long_url FROM url_shortner WHERE url_id = '$url_id'";
-	$result = mysqli_query($db,$sql);
-	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+<?php 
 
-	if(mysqli_num_rows($result) == 1)
-	{
-		$l_url = $row['long_url'];
-		header('Location:' .$l_url);
-	}
-	else
-	{
-		header('Location: index.php');
-	}
-}
-
-if(isset($_POST["submit"]))	
-{
+    require_once('../include/config.php');
+    require_once('../include/function.php');
 	
-	$long_url = $_POST["long_url"];
-	$long_url = mysqli_real_escape_string($db, $long_url);
+    $msg = "";
 	
-	$sql="SELECT long_url FROM url_shortner WHERE long_url = '$long_url'";
-	$result=mysqli_query($db,$sql);
-	$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+    if(isset($_GET['r']) || !empty($_GET['r']))
+    {
+        $url_id = $_GET['r'];
+        
+        $sql = "SELECT long_url FROM url_shortner WHERE url_id = '$url_id'";
+        $result = mysqli_query($db,$sql);
+        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-	if(mysqli_num_rows($result) == 0)
-	{
+        if(mysqli_num_rows($result) == 1)
+        {
+            $l_url = $row['long_url'];
+            header('Location:' .$l_url);
+        }
+        else
+        {
+            header('Location: index.php');
+        }
+    }
 
-		if (!filter_var($_POST['long_url'], FILTER_VALIDATE_URL) === false) 
-		{
-			$url_id = generateRandomString();
-			$short_url = $site . "/" . $url_id;
-				
-			$query = mysqli_query($db, "INSERT url_shortner (url_id, long_url, short_url) VALUES ('$url_id','$long_url','$short_url')");
-			
-			if($query)
-			{
-				$msg = "<b>La nueva url es</b>: <a href='".$short_url."'>$short_url</a>";
-			}
-			else
-			{
-				$msg = "Ups! Tenemos un problema.";
-			}
-		} 
-		else 
-		{
-			$msg = $_POST['long_url'] ."no es una url valida.";
-		}
-	}
-	else
-	{
-		$msg = "Fuck! Esa url ya esta guardada en nuestros registros.";
-	}
-}
+    require_once('../include/header.php');
+
 ?>
-<?php include '../include/header.php'; ?>
-<body>
-<?php include '../include/hamburger.php'; ?>
-<table class="content">
-    <tr>
-        <td class="bar">
-        <?php include '../include/bar.php'; ?>   
-        </td>
-        <td style="width:80%;">
-            <br>
-            <br>
-            <div class="outer">
-                <div class="middle">
-					<h1>Shared content!</h1>
-					<br>
-					<br>
-                    <form method="post">
-                        <input type="url" name="long_url" class="inputBox" required>
-						<input type="submit" name="submit" class="cut bouncy" value="Cut it off!" >
-						<br>
-						<br>
-						<!--Complete with your own Google site key for recaptcha-->
-						<div class="g-recaptcha" data-sitekey="SITE_KEY" data-callback="verifyCaptcha"></div> 
-						<div id="g-recaptcha-error"></div>
-					</form>
-					<script src="https://www.google.com/recaptcha/api.js"></script>
-					<script>
-						function submitUserForm() {
-							var response = grecaptcha.getResponse();
-							if(response.length == 0) {
-								document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:#FE6E41;">Verificar que no eres un robot.</span>';
-								return false;
-							}
-							return true;
-						}
-						
-						function verifyCaptcha() {
-							document.getElementById('g-recaptcha-error').innerHTML = '';
-						}
-					</script>
-					<br>
-                    <h2 class="msg"><?php echo $msg;?></h2>
-					<br>
-					<br>
-					<?php
-						$servername = "SERVER"; // Database server name
-						$username = "USER"; // Database username
-						$password = "PASSWORD"; // Database password for database user
-						$dbname = "DATABASE"; // Database name
+<div class="title">
+    Favoritos
+</div>
+<br>
+<table class="favs">
+<?php
 
-						// Create connection
-						$conn = new mysqli($servername, $username, $password, $dbname);
-						// Check connection
-						if ($conn->connect_error) {
-							die("Connection failed: " . $conn->connect_error);
-						}
+    //Add here your database connection data
+	$servername = "";
+	$username = "";
+	$password = "";
+	$dbname = "";
 
-						$sql = "SELECT short_url as URL, 
-						date as Fecha, 
-						CASE
-							WHEN long_url LIKE '%facebook.com%' THEN 'facebook.png' 
-							WHEN long_url LIKE '%instagram.com%' THEN 'instagram.png' 
-							WHEN long_url LIKE '%youtube.com%' THEN 'youtube.png' 
-							WHEN long_url LIKE '%twitter.com%' THEN 'twitter.png' 
-							WHEN long_url LIKE '%spotify.com%' THEN 'spotify.png' 
-							WHEN long_url LIKE '%github.com%' THEN 'github.png'
-							WHEN long_url LIKE '%photos.app.goo.gl%' THEN 'photos.png'
-							ELSE 'chrome.png' 
-						END as Icono,
-						'username' as Usuario, -- Insert your own username 
-						CASE 
-							WHEN long_url LIKE '%youtube.com%' THEN REPLACE(long_url,'https://www.youtube.com/watch?v=','')
-							ELSE ''
-						END as thumb
-						FROM url_shortner
-						ORDER BY date DESC";
-						$result = $conn->query($sql);
+	$conn = new mysqli($servername, $username, $password, $dbname);
 
-						if ($result->num_rows > 0) {
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
 
-							while($row = $result->fetch_assoc()) {
-								echo '      <div class="post">'."\n";
-								echo '          Contenido compartido: <a href="'.$row["URL"].'" target="_blank">'.$row["URL"].'</a>'."\n";
-								echo '          <p>'."\n";
-								echo '              Publicado por '.$row["Usuario"].' en <img src="../img/'.$row["Icono"].'" alt="Categoria"> el '.$row["Fecha"]."\n";
-								echo '          </p>'."\n";
-								if (strlen($row["thumb"])>0) {
-									echo '      <br>'."\n";;
-									echo '      <img src="https://img.youtube.com/vi/'.$row["thumb"].'/hqdefault.jpg" alt="youtube" width="250px">'."\n";
-								}
-								echo '      </div>'."\n";
-								echo '      <br>'."\n";
-							}
-						} else {
-							echo '      <div class="post">Se han encontrado 0 resultados</div>'."\n";
-						}
+	$sql = "SELECT short_url as URL, 
+        date as Fecha, 
+        CASE
+            WHEN long_url LIKE '%facebook.com%' THEN 'Facebook' 
+            WHEN long_url LIKE '%instagram.com%' THEN 'Instagram' 
+            WHEN long_url LIKE '%youtube.com%' OR long_url LIKE '%youtu.be%' THEN 'Youtube' 
+            WHEN long_url LIKE '%twitter.com%' THEN 'Twitter' 
+            WHEN long_url LIKE '%spotify.com%' THEN 'Spotify' 
+            WHEN long_url LIKE '%github.com%' THEN 'Github'
+            WHEN long_url LIKE '%photos.app.goo.gl%' THEN 'Photos'
+            WHEN long_url LIKE '%byte.co%' THEN 'Byte'
+            ELSE 'Web' 
+        END as Icono,
+        'Luciano Alfonsin' as Usuario,
+        CASE 
+            WHEN long_url LIKE '%youtube.com%' THEN REPLACE(long_url,'https://www.youtube.com/watch?v=','')
+            ELSE ''
+        END as thumb
+        FROM url_shortner
+        WHERE `show` = 1
+        ORDER BY date DESC";
+    
+	$result = $conn->query($sql);
 
-						$conn->close();
-					?>
-					<br>
-					<br>
-                    <?php include '../include/license.php'; ?>
-                    <br>
-                </div>
-            </div>
-        </td>
-    </tr>
+	if ($result->num_rows > 0) {
+
+        $i = 0; $trEnd = 0;
+		while($row = $result->fetch_assoc()) {
+			
+			switch($row["Icono"]) {
+				case 'Facebook':
+                    $logo = '<i class="fab fa-facebook"></i>';
+                    break;
+				case 'Instagram':
+                    $logo = '<i class="fab fa-instagram"></i>';
+                    break;
+				case 'Youtube':
+                    $logo = '<i class="fab fa-youtube"></i>';
+                    break;
+				case 'Twitter':
+                    $logo = '<i class="fab fa-twitter-square"></i>';
+                    break;
+				case 'Spotify':
+                    $logo = '<i class="fab fa-spotify"></i>';
+                    break;
+				case 'Github':
+                    $logo = '<i class="fab fa-github"></i>';
+                    break;
+				case 'Photos':
+                    $logo = '<i class="far fa-image"></i>';
+                    break;
+				case 'Web':
+                    $logo = '<i class="fab fa-chrome"></i>';
+                    break;
+				case 'Byte':
+                    $logo = '<i class="fab fa-vine"></i>';
+                    break;
+            }
+            
+            if($i == 0){
+                echo '  <tr>'."\n";
+            }
+            echo '      <td>'."\n";
+            echo '          <i class="far fa-calendar-alt"></i> Date: '.$row['Fecha']."\n";
+            echo '          <br>'."\n";
+            echo '          <i class="fas fa-user"></i> User: '.$row['Usuario']."\n";
+            echo '          <br>'."\n";
+            echo '          '.$logo.' Category: '.$row['Icono']."\n";
+            if (strlen($row["thumb"])>0) {
+                echo '          <br>'."\n";
+                echo '          <i class="far fa-eye"></i> Preview:'."\n";
+                echo '          <br>'."\n";
+				echo '          <img src="https://img.youtube.com/vi/'.$row["thumb"].'/hqdefault.jpg" alt="youtube">'."\n";
+            }
+            echo '          <br>'."\n";
+            echo '          <br>'."\n";
+            echo '          <a href="'.$row["URL"].'" target="_blank">View more</a>'."\n";
+            echo '      </td>'."\n";
+
+            if($i == 2){
+                $i = 0; $trEnd = 1;
+            }else{
+                $trEnd = 0; $i++;
+            }
+            if($trEnd == 1) {
+                echo '  </tr>'."\n";;
+            }
+        }
+            if($trEnd == 0) echo '  </tr>'."\n";;
+
+	} else {
+		echo '  <tr><td>No results found.</td></tr>'."\n";
+	}
+
+    $conn->close();
+    
+?>
 </table>
-<?php include '../include/footer.php'; ?>
+<?php 
+    require_once('../include/footer.php'); 
+?>

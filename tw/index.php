@@ -1,53 +1,131 @@
-<?php include '../include/header.php'; ?>
-<body>
-<?php include '../include/hamburger.php'; ?>
-<table class="content">
-    <tr>
-        <td class="bar">
-        <?php include '../include/bar.php'; ?>   
-        </td>
-        <td style="width:80%;">
-            <br>
-            <br>
-            <div class="send">
-                <h1 style="font-family:'Press Start 2P';">Let's tweet!</h1>
-            </div>
-            <br>
-            <br>
-            <div class="read"> 
-                <br>
-                <div class="twitter">Twitter <span>@USERNAME</span></div> <!--Insert your twitter username in this line-->
-                <br>
-                <?php
+<?php 
+    require_once('../include/header.php');
+?>
+<div class="title">
+    Social Networks
+</div>
+<br>
+<div class="network"><i class="fab fa-instagram"></i> Instagram.</div>
+<br>
+<table class="ig">
+<?php
 
-                    include "../include/twitter.class.php";
+    //Add here your database connection data
+	$servername = "";
+	$username = "";
+	$password = "";
+	$dbname = "";
 
-                    $consumerKey = "C_KEY"; // Twitter consumer key
-                    $consumerSecret = "C_SECRET"; // Twitter consumer secret
-                    $accessToken = "A_TOKEN";  // Twitter access token
-                    $accessTokenSecret = "A_SECRET"; // Twitter access token secret
-        
-                    $twitter = new Twitter($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
-        
-                    $statuses = $twitter->load(Twitter::ME);
+	$conn = new mysqli($servername, $username, $password, $dbname);
 
-                    $media_url = $result->entities->media[0]->media_url;
-                    
-                    foreach ($statuses as $status) {
-                        echo '                '.Twitter::clickable($status)."\n";
-                        echo '                <p>Publicado el '.$status->created_at.' por '.$status->user->name.'</p>'."\n";
-                        if (strlen($status->entities->media[0]->media_url)>0) {
-                            echo '                <p><a href="'.$status->entities->media[0]->media_url.'" target="_blank"><img src="'.$status->entities->media[0]->media_url.'" alt="2mcoffee" style="max-width: 240px;border:0px;"></a></p>'."\n";
-                        }
-                        echo '                <br>'."\n";
-                    }
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
 
-                ?>
-            </div>
-            <br>
-            <?php include '../include/license.php'; ?>
-            <br>
-        </td>
-    </tr>
+	$sql = "SELECT URL, 
+            Fecha, 
+            Ubicacion
+        FROM Instagram
+        ORDER BY Fecha DESC, Id ASC
+        LIMIT 9";
+    
+	$result = $conn->query($sql);
+
+	if ($result->num_rows > 0) {
+
+        $i = 0; $trEnd = 0;
+		while($row = $result->fetch_assoc()) {
+            
+            if($i == 0){
+                echo '  <tr>'."\n";
+            }
+            echo '      <td>'."\n";
+            echo '          <i class="far fa-calendar-alt"></i> Date: '.$row['Fecha']."\n";
+            echo '          <br>'."\n";
+            echo '          <i class="fas fa-user"></i> User: '."\n"; //Complete with your username
+            echo '          <br>'."\n";
+            echo '          <i class="fab fa-instagram"></i> Network: Instagram'."\n";
+            echo '          <br>'."\n";
+            echo '          <i class="far fa-eye"></i> Preview:'."\n";
+            echo '          <br>'."\n";            
+            echo '          <img src="'.$row["URL"].'" alt="Instagram">'."\n";
+            echo '          <br>'."\n";
+            echo '          <br>'."\n";
+            echo '          <a href="'.$row["URL"].'" target="_blank"><i class="far fa-image"></i> Image</a>  <a href="'.$row['Ubicacion'].'" target="_blank"><i class="fas fa-map-marker-alt"></i> Location</a>'."\n";
+            echo '      </td>'."\n";
+
+            if($i == 2){
+                $i = 0; $trEnd = 1;
+            }else{
+                $trEnd = 0; $i++;
+            }
+            if($trEnd == 1) {
+                echo '  </tr>'."\n";;
+            }
+        }
+            if($trEnd == 0) echo '  </tr>'."\n";;
+
+	} else {
+		echo '  <tr><td>No results found.</td></tr>'."\n";
+	}
+
+    $conn->close();
+    
+?>
 </table>
-<?php include '../include/footer.php'; ?>
+<br>
+<div class="network"><i class="fab fa-twitter"></i> Twitter.</div>
+<br>
+<table class="tw">
+<?php
+
+    include "../include/twitter.class.php";
+
+    //Add here your twitter developer account data
+    $consumerKey = "";
+    $consumerSecret = "";
+    $accessToken = "";
+    $accessTokenSecret = "";
+        
+    $twitter = new Twitter($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
+        
+    $statuses = $twitter->load(Twitter::ME);
+
+    $media_url = $result->entities->media[0]->media_url;
+    
+    echo '  <tr>'."\n";
+    $i = 0;
+
+    foreach ($statuses as $status) {
+        $i++;
+
+        
+        echo '      <td>'."\n";
+        echo '          <span>'.Twitter::clickable($status).'</span>'."\n";
+        echo '          <br>'."\n";
+        echo '          <br>'."\n";
+        echo '          <i class="far fa-calendar-alt"></i> Date: '.$status->created_at."\n";
+        echo '          <br>'."\n";
+        echo '          <i class="fas fa-user"></i> User: '.$status->user->name."\n";
+        echo '          <br>'."\n";
+        echo '          <i class="fab fa-twitter"></i> Network: Twitter'."\n";
+        if (strlen($status->entities->media[0]->media_url)>0) {
+            echo '          <br>'."\n";
+            echo '          <i class="far fa-image"></i> Images:'."\n";
+            echo '          <br>'."\n";
+            echo '<a href="'.$status->entities->media[0]->media_url.'" target="_blank"><img src="'.$status->entities->media[0]->media_url.'" alt="" style="max-width: 200px;max-height:200px;border:0px;"></a>'."\n";
+        }
+        echo '      </td>'."\n";
+        if($i % 2==0) {
+        echo '      </tr>'."\n";
+        echo '      <tr>'."\n";
+        }
+    }
+
+    echo '  </tr>'."\n";
+
+?>
+</table>
+<?php 
+    require_once('../include/footer.php'); 
+?>

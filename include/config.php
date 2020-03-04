@@ -1,11 +1,13 @@
 <?php
 
-	define('DB_SERVER', 'SERVER');  // Database server name
-	define('DB_USERNAME', 'USER'); // Database user
-	define('DB_PASSWORD', 'PASSWORD'); // Password for database user
-	define('DB_DATABASE', 'DATABASE_NAME'); // Database name
+	//Add here your database connection data
+	define('DB_SERVER', '');
+	define('DB_USERNAME', '');
+	define('DB_PASSWORD', '');
+	define('DB_DATABASE', '');
 	$db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 	
-	$site = "URL"; // Application url - Example: http://2mcoffee.com/app
+	//Domain for URL Shorterner
+	$site = "http://domain.com/app";
 
 ?>
